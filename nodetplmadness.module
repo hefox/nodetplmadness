@@ -1,18 +1,18 @@
 <?php
 
 function nodetplmadness_preprocess_node(&$variables) {
-  $node = $vars['node'];
+  $node = $variables['node'];
   // Clean up name so there are no underscores.
   if ($node->build_mode === NODE_BUILD_NORMAL 
     || $node->build_mode == NODE_BUILD_PREVIEW) {
-    $context = $teaser ? 'teaser' : 'full';
+    $context = $variables['teaser'] ? 'teaser' : 'full';
   } else {
     $context = $node->build_mode;
   }
-  array_unshift($variables['template_files'],'node-mode-'.$context);
-  $variables['template_files'][] = 'node-'.$node->type . '-' . $context;
+  if ($context) {
+    array_unshift($variables['template_files'],'node-'.$context);
+    $variables['template_files'][] = 'node-'.$node->type . '-' . $context;
+  }
   
   $variables['template_files'][] = 'node-' .$node->nid;
-  
-  
 }
