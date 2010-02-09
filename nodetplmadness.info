@@ -1,0 +1,4 @@
+name = Node template madness
+description = Adds some extra node template suggestions
+package = Content
+core = 6.x
