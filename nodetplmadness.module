@@ -10,7 +10,7 @@ function nodetplmadness_preprocess_node(&$variables) {
     $context = $node->build_mode;
   }
   array_unshift($variables['template_files'],'node-mode-'.$context);
-  $variables['template_files'][] 'node-'.$node->type . '-' . $context;
+  $variables['template_files'][] = 'node-'.$node->type . '-' . $context;
   
   $variables['template_files'][] = 'node-' .$node->nid;
   
